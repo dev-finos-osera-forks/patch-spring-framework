@@ -1,0 +1,27 @@
+line: spring-framework-5.3
+bom: org.springframework:spring-framework-bom
+repository: patch-spring-framework
+members:
+  - org.springframework:spring-framework-bom
+  - org.springframework:spring-aop
+  - org.springframework:spring-aspects
+  - org.springframework:spring-beans
+  - org.springframework:spring-context
+  - org.springframework:spring-context-indexer
+  - org.springframework:spring-context-support
+  - org.springframework:spring-core
+  - org.springframework:spring-expression
+  - org.springframework:spring-instrument
+  - org.springframework:spring-jcl
+  - org.springframework:spring-jdbc
+  - org.springframework:spring-jms
+  - org.springframework:spring-messaging
+  - org.springframework:spring-orm
+  - org.springframework:spring-oxm
+  - org.springframework:spring-r2dbc
+  - org.springframework:spring-test
+  - org.springframework:spring-tx
+  - org.springframework:spring-web
+  - org.springframework:spring-webflux
+  - org.springframework:spring-webmvc
+  - org.springframework:spring-websocket
