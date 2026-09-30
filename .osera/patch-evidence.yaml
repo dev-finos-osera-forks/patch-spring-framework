@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: cp-osera-dev
-release: 5.3.39.1-osera-00004
+release: 5.3.39.1-osera-00005
 baseline: v5.3.39+patch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -24,11 +24,16 @@ fixes:
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-41249
     artifacts:
       - org.springframework:spring-core
-    note: New in this release; ported onto 5.3.39; fixed at 5.3.39.1-backpatch-00004 (backpatch-spring-framework@c86ba0d..8a0071a).
+    note: Carried from 5.3.39.1-backpatch-00004; ported onto 5.3.39; fixed at 5.3.39.1-backpatch-00004 (backpatch-spring-framework@c86ba0d..8a0071a).
+  - cve: CVE-2026-41838
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41838
+    artifacts:
+      - org.springframework:spring-websocket
+    note: New in this release; ported onto 5.3.39; fixed at 5.3.39.1-backpatch-00005 (backpatch-spring-framework@64f7330).
 tests:
-  commit: 8dcbedcf9c44849c8ec07cad2b798c07bf83a577
-  command: ./gradlew --no-daemon --no-scan -I osera-init.gradle -Dosera.version=5.3.39.1-osera-00004 -p spring-core test --rerun-tasks --tests org.springframework.core.annotation.MergedAnnotationsTests && ./gradlew --no-daemon --no-scan -I osera-init.gradle -Dosera.version=5.3.39.1-osera-00004 -p spring-web test --rerun-tasks --tests org.springframework.web.method.HandlerMethodTests
+  commit: a42dfd9438af246ba909bfdc6863178ab4cda8af
+  command: ./gradlew --no-daemon --no-scan -I osera-init.gradle -Dosera.version=5.3.39.1-osera-00005 -p spring-websocket test --rerun-tasks --tests org.springframework.web.socket.adapter.AbstractWebSocketSessionIdGeneratorTests
   runtime: OpenJDK 1.8.0_372 (Zulu), Gradle wrapper of the repository
-  report: spring-core-5.3.39.1-osera-00004-tests.zip
+  report: spring-websocket-5.3.39.1-osera-00005-tests.zip
   result: pass
-  note: the regression tests the fix commits touched, 174 test(s) run, 0 failed, at the tested commit
+  note: the regression tests the fix commits touched, 2 test(s) run, 0 failed, at the tested commit
