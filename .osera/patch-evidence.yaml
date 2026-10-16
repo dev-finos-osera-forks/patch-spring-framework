@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: cp-osera-dev
-release: 5.3.39.1-osera-00013
+release: 5.3.39.1-osera-00014
 baseline: v5.3.39+patch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -81,12 +81,17 @@ fixes:
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-47892
     artifacts:
       - org.springframework:spring-webflux
-    note: New in this release; ported onto 5.3.39; fixed at 5.3.39.1-backpatch-00013 (backpatch-spring-framework@8244f32).
+    note: Carried from 5.3.39.1-backpatch-00013; ported onto 5.3.39; fixed at 5.3.39.1-backpatch-00013 (backpatch-spring-framework@8244f32).
+  - cve: CVE-2026-47884
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-47884
+    artifacts:
+      - org.springframework:spring-webmvc
+    note: New in this release; ported onto 5.3.39; fixed at 5.3.39.1-backpatch-00014 (backpatch-spring-framework@b3bfd95..e777020).
 tests:
-  commit: 5ab219bd8ca683669c38c9aec0bd45ae458f22ee
-  command: ./gradlew --no-daemon --no-scan -I osera-init.gradle -Dosera.version=5.3.39.1-osera-00013 -p spring-webflux test --rerun-tasks --tests org.springframework.web.reactive.function.server.RouterFunctionsTests
+  commit: a9caebcfd563377687671b5bc84e4afe8f62a81a
+  command: ./gradlew --no-daemon --no-scan -I osera-init.gradle -Dosera.version=5.3.39.1-osera-00014 -p spring-webmvc test --rerun-tasks --tests org.springframework.web.servlet.view.xslt.*
   runtime: OpenJDK 1.8.0_382 (Zulu), Gradle wrapper of the repository
-  report: spring-webflux-5.3.39.1-osera-00013-tests.zip
-  report_sha256: 9630ad3e884befd70e28e656a7137818cecc8298c978bb8b3ab5bb0ef456deb6
+  report: spring-webmvc-5.3.39.1-osera-00014-tests.zip
+  report_sha256: 471ee41214101c5231b6c392ecb5c4c0c2538f8819d87a5f1d4cecbe81c39ee0
   result: pass
-  note: the regression tests the fix commits touched, 14 test(s) run, 0 failed, at the tested commit
+  note: the regression tests the fix commits touched, 23 test(s) run, 0 failed, at the tested commit
