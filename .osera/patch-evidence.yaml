@@ -1,6 +1,6 @@
 schema: osera-patch-evidence/0.1.0
 producer: cp-osera-dev
-release: 5.3.39.1-osera-00015
+release: 5.3.39.1-osera-00016
 baseline: v5.3.39+patch.baseline
 fixes:
   - cve: CVE-2016-1000027
@@ -91,12 +91,30 @@ fixes:
     upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41855
     artifacts:
       - org.springframework:spring-jms
-    note: New in this release; ported onto 5.3.39; fixed at 5.3.39.1-backpatch-00015 (backpatch-spring-framework@59c04e0); opt-in as upstream's, so nothing changes until an application calls setTrustedPackages.
+    note: Carried from 5.3.39.1-backpatch-00015; ported onto 5.3.39; fixed at 5.3.39.1-backpatch-00015 (backpatch-spring-framework@59c04e0).
+  - cve: CVE-2025-41249
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2025-41249
+    artifacts:
+      - org.springframework:spring-core
+      - org.springframework:spring-web
+    note: New in this release; ported onto 5.3.39; fixed at 5.3.39.1-backpatch-00016 (backpatch-spring-framework@eb7bfd5).
+  - cve: CVE-2026-22740
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-22740
+    artifacts:
+      - org.springframework:spring-webflux
+      - org.springframework:spring-web
+    note: New in this release; ported onto 5.3.39; fixed at 5.3.39.1-backpatch-00016 (backpatch-spring-framework@eb7bfd5).
+  - cve: CVE-2026-41845
+    upstream: https://nvd.nist.gov/vuln/detail/CVE-2026-41845
+    artifacts:
+      - org.springframework:spring-webmvc
+      - org.springframework:spring-web
+    note: New in this release; ported onto 5.3.39; fixed at 5.3.39.1-backpatch-00016 (backpatch-spring-framework@eb7bfd5).
 tests:
-  commit: 569eabda74e51f53aea28c157205b2ca9aba191e
-  command: ./gradlew --no-daemon --no-scan -I osera-init.gradle -Dosera.version=5.3.39.1-osera-00015 -p spring-jms test --rerun-tasks --tests org.springframework.jms.support.converter.MappingJackson2MessageConverterTests
+  commit: 3f5878f580bcaece2fa04a14905d8db5716e1e67
+  command: ./gradlew --no-daemon --no-scan -I osera-init.gradle -Dosera.version=5.3.39.1-osera-00016 -p spring-core test --rerun-tasks --tests *MergedAnnotationsTests && ./gradlew --no-daemon --no-scan -I osera-init.gradle -Dosera.version=5.3.39.1-osera-00016 -p spring-web test --rerun-tasks --tests *HandlerMethodTests --tests *MultipartTempFileDiscardTests --tests *JavaScriptUtilsTests --tests *HttpInvokerDeserializationGuardTests --tests *HttpInvokerTests && ./gradlew --no-daemon --no-scan -I osera-init.gradle -Dosera.version=5.3.39.1-osera-00016 -p spring-context test --rerun-tasks --tests org.springframework.remoting.*
   runtime: OpenJDK 1.8.0_382 (Zulu), Gradle wrapper of the repository
-  report: spring-jms-5.3.39.1-osera-00015-tests.zip
-  report_sha256: 2a47e092fb4414c726d4e480a3486b5afdf92aa6a1d1b0fbbb6d154c440f1cd3
+  report: spring-web-5.3.39.1-osera-00016-tests.zip
+  report_sha256: b5e1bf9067c4892640e0d265bad3e21d1dc0f7eff283b296c11be8f334029ff4
   result: pass
-  note: "the regression tests the fix commits touched, 19 test(s) run, 0 failed, at the tested commit"
+  note: "the regression tests the fix commits touched, 240 test(s) run, 0 failed, at the tested commit"
